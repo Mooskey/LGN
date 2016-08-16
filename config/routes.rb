@@ -15,6 +15,17 @@ Rails.application.routes.draw do
 
   post 'events/:id' => 'events#going'
 
+#pagination for users and events
+
+get 'events', to: 'events#index', page: 1
+get 'events/page/:page', to: 'events#index'
+
+get 'users', to: 'users#index', page: 1
+get 'users/page/:page', to: 'users#index'
+
+
+
+
   root 'home#home'
   devise_for :users, :controllers => { :sessions => "custom_sessions" }
   resources :users

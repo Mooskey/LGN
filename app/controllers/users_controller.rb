@@ -3,7 +3,20 @@ class UsersController < ApplicationController
 
     def index
       @users = current_user.nearbys(25) || User.near("Miami", 200)
+      @page = (params[:page] || 1).to_i
+              skip = (@page - 1) * 25
+              @users = @users.
+              order(created_at: :desc).
+              limit(25).
+              offset(skip).
+              all
+        if params[:page] != nil && params[:page].to_i < 1
+          redirect_back fallback_location: users_path
+        end
     end
+
+
+
     def show
       @users_games = []
       @games_user_records = GamesUser.where(user_id: current_user)
