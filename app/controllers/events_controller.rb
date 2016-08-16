@@ -44,18 +44,20 @@ class EventsController < ApplicationController
   end
 
   def index
-    # @events = Event.all
-    @events = Event.near([current_user.latitude, current_user.longitude], 300) || Event.near(current_user.city, 300)
+    # @eventss = Event.all
+    @eventss = Event.near([current_user.latitude, current_user.longitude], 300) || Event.near(current_user.city, 300)
 
     @page = (params[:page] || 1).to_i
     skip = (@page - 1) * 10
-    @events =   @events.
+    @events =   @eventss.
                 order(created_at: :desc).
                 limit(10).
                 offset(skip).
                 all
             if params[:page] != nil && params[:page].to_i < 1
               redirect_back fallback_location: events_path
+            elsif ((@eventss.length/10.0).ceil && 1) < params[:page].to_i
+              redirect_to "/events/page/#{(@eventss.length/10.0).ceil}"
             end
 
   end

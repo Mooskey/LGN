@@ -2,17 +2,21 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :remove_game]
 
     def index
-      @users = current_user.nearbys(25) || User.near("Miami", 200)
+      @userss = current_user.nearbys(25) || User.near("Miami", 200)
+
       @page = (params[:page] || 1).to_i
-              skip = (@page - 1) * 25
-              @users = @users.
-              order(created_at: :desc).
-              limit(25).
-              offset(skip).
-              all
-        if params[:page] != nil && params[:page].to_i < 1
-          redirect_back fallback_location: users_path
-        end
+      skip = (@page - 1) * 10
+      @users =   @userss.
+                  order(created_at: :desc).
+                  limit(10).
+                  offset(skip).
+                  all
+              if params[:page] != nil && params[:page].to_i < 1
+                redirect_back fallback_location: events_path
+
+              elsif ((@userss.length/10.0).ceil && 1) < params[:page].to_i
+                redirect_to "/events/page/#{(@userss.length/10.0).ceil}"
+              end
     end
 
 

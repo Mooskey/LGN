@@ -17,7 +17,7 @@
   Steam Profile URL: <%= link_to @user.steam, "http://steamcommunity.com/id/#{@user.steam}" %> <br>
 Xbox Gamer Tag URL:
   <% if @user.xbox %>
-    <%=link_to @user.xbox, "https://account.xbox.com/en-US/Profile?gamerTag=#{(@user.xbox).gsub(" ", "+")}" %> <br>
+    <%=link_to @user.xbox, "https://account.xbox.com/en-US/Profile?gamerTag=#{(@user.xbox).strip.gsub(" ", "+")}" %> <br>
   <% end %>
 
 
