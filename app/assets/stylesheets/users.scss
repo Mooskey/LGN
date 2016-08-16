@@ -93,3 +93,35 @@ padding: 0 2rem;
     margin: .5rem 0 0 0;
   }
 }
+
+#edit_profile {
+  font-size: 0.5em;
+  color: lighten($header-bkgnd, 20%);
+}
+
+#bio {
+}
+
+.profile-games {
+  border-top: 2px solid $grey-divider;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+.profile-game {
+  // justify-content: space-between;
+  flex: 1;
+  margin: 1rem 1rem 0rem 0;
+  width: 100%;
+}
+.profile-game-img {
+  height: 7rem;
+  width: auto;
+}
+
+.remove-game-btn {
+  width: 90%
+
+}
