@@ -93,10 +93,10 @@
     <%# end %>
 
 
+    <div class="profile-games">
       <% @users_games.each do |game|%>
-        <div class="profile-game">
+      <div class="profile-game">
           <% if @user == current_user %>
-          <div class="profile-games">
             <%#= link_to game.title, "#{@user.id}/#{game.id}", method: :delete, data: {confirm: 'Are you sure you want to delete this game?'} %> <br />
             <%= image_tag(game.image, class: "profile-game-img") %>
             <%= button_to "Remove", "#{@user.id}/#{game.id}",
@@ -107,9 +107,9 @@
           <% end %>
         </div>
       <% end %>
+      <!-- <div class="clear-fix"></div> -->
     </div>
 
-    <div class="clear-fix"></div>
 
     <div>
       <%#= link_to 'Nearby Users', users_path%>
