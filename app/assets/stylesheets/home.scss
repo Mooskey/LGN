@@ -1,186 +1,323 @@
-// // Place all the styles related to the home controller here.
-// // They will automatically be included in application.css.
-// // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 // @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 //
-// // @prim: #53e3a6;
-//
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+@import "vars";
 
-	font-weight: 300;
+.devise-wrapper {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+.devise-wrapper {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+.devise-wrapper ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+.devise-wrapper :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  opacity: 1;
+  font-weight: 300;
+}
+.devise-wrapper ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  opacity: 1;
+  font-weight: 300;
+}
+.devise-wrapper :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+.devise-wrapper {
+  background: #50a3a2;
+  background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  // position: absolute;
+  // top: 50%;
+  // left: 0;
+  width: 100%;
+  height: 85vh;
+	min-height: 50rem;
+  // margin-top: -200px;
+  // overflow: hidden;
+}
+.devise-wrapper.form-success .devise-container h1 {
+  -webkit-transform: translateY(85px);
+          transform: translateY(85px);
+}
+.devise-container {
+  // max-width: 600px;
+  margin: 0 auto;
+  padding: 8rem 0 0 0;
+  // height: 400px;
+  text-align: center;
+}
+.devise-container h1 {
+  font-size: 40px;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-put;
+          transition-timing-function: ease-in-put;
+  font-weight: 300;
+	margin: 0.6rem 0;
 }
 
-body{
-	font-family: 'Source Sans Pro', sans-serif;
-	color: black;
-	font-weight: 300;
-
-	::-webkit-input-placeholder { /* WebKit browsers */
-		font-family: 'Source Sans Pro', sans-serif;
-			color:    black;
-		font-weight: 300;
-	}
-	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-		font-family: 'Source Sans Pro', sans-serif;
-		 color:    black;
-		 opacity:  1;
-		font-weight: 300;
-	}
-	::-moz-placeholder { /* Mozilla Firefox 19+ */
-		font-family: 'Source Sans Pro', sans-serif;
-		 color:    black;
-		 opacity:  1;
-		font-weight: 300;
-	}
-	:-ms-input-placeholder { /* Internet Explorer 10+ */
-		font-family: 'Source Sans Pro', sans-serif;
-		 color:    black;
-		font-weight: 300;
-	}
+.devise-wrapper form {
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
 }
-
-.sign-in-page{
-	background: #50a3a2;
-background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
-
-
-
-	left: 0;
-	width: 100%;
-	height: 95vh;
-	overflow: hidden;
-
-	&.form-success{
-		.container{
-		}
+.devise-wrapper .nice form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+  font-weight: 300;
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.4);
 	}
-}
-
-.container{
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 80px 0;
-	height: 400px;
-	text-align: center;
-
-	h1{
-		font-size: 40px;
-		transition-duration: 1s;
-		transition-timing-function: ease-in-put;
-		font-weight: 200;
-	}
-}
-
-form{
-	padding: 20px 0;
-	position: relative;
-	z-index: 2;
-
-	input{
-		display: block;
-		outline: 0;
-		border: 1px solid fade(white, 40%);
-		background-color: fade(white, 20%);
-		width: 250px;
-
-		border-radius: 3px;
-		padding: 10px 15px;
-		margin: 0 auto 10px auto;
-		display: block;
-		text-align: center;
-		font-size: 18px;
-
-		color: black;
-
-		transition-duration: 0.25s;
-		font-weight: 300;
-
-		&:hover{
-			background-color: fade(white, 40%);
-		}
-
-		&:focus{
-			background-color: white;
-			width: 300px;
-
-		}
-	}
-
-	button{
-		appearance: none;
-		outline: 0;
+	&:focus {
 		background-color: white;
-		border: 0;
-		padding: 10px 15px;
-		border-radius: 3px;
-		width: 250px;
-		cursor: pointer;
-		font-size: 18px;
-		transition-duration: 0.25s;
+		width: 300px;
+		color: #53e3a6;
+	}
+}
+.devise-wrapper form input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+	background-color: #fff;
+}
+.devise-wrapper form button,
+.whit-btn form button,
+.whit-btn form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #53e3a6;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+// .devise-wrapper form button:hover,
+.whit-btn form button:hover,
+.whit-btn form input:hover {
+  background-color: #f5f7f9;
+}
 
-		&:hover{
-			background-color: rgb(245, 247, 249);
-		}
+#login-button {
+	display: none;
+	padding: 0;
+	margin: 0;
+}
+
+.forgotpw a {
+		color: #fff;
+		font-weight: 400;
+	&:hover {
+			color: #fff;
+	}
+	&:visited {
+			color: #fff;
 	}
 }
 
-#signup {
-	font-family: 'Source Sans Pro', sans-serif;
-	margin-top: 25px;
-	margin-bottom: 25px;
-	text-align: center;
-}
 
-.checkbox {
-	text-align: center;
-	margin-bottom: 25px;
-}
 
-#user_remember_me {
-	display: inline;
-	width: 15px;
-}
 
-.signin{
-	text-align: center;
-	margin-top: 50px;
-	margin-bottom: 75px;
-}
-#resetpw {
-	margin-bottom: 35px;
-}
-.forgotpw {
-	text-align: center;
-}
 
-.req {
-	text-align: center;
-	// margin-bottom: 15px;
-}
 
-.new-user {
-	text-align: center;
-}
 
-#username-length {
 
-}
 
-#password-length {
-	text-align: center;
-}
 
-@-webkit-keyframes square {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-700px) rotate(600deg); }
-}
-@keyframes square {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-700px) rotate(600deg); }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// body{
+//
+// 	.devise-wrapper{
+// 		font-family: 'Source Sans Pro', sans-serif;
+// 		color: white;
+// 		font-weight: 300;
+//
+// 		::-webkit-input-placeholder { /* WebKit browsers */
+// 			font-family: 'Source Sans Pro', sans-serif;
+// 				color:    white;
+// 			font-weight: 300;
+// 		}
+// 		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+// 			font-family: 'Source Sans Pro', sans-serif;
+// 			 color:    white;
+// 			 opacity:  1;
+// 			font-weight: 300;
+// 		}
+// 		::-moz-placeholder { /* Mozilla Firefox 19+ */
+// 			font-family: 'Source Sans Pro', sans-serif;
+// 			 color:    white;
+// 			 opacity:  1;
+// 			font-weight: 300;
+// 		}
+// 		:-ms-input-placeholder { /* Internet Explorer 10+ */
+// 			font-family: 'Source Sans Pro', sans-serif;
+// 			 color:    white;
+// 			font-weight: 300;
+// 		}
+// 	}
+// }
+//
+// .devise-wrapper{
+// 	background: #50a3a2;
+// background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+// background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+// background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+// background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+//
+// 	position: absolute;
+// 	top: 50%;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 400px;
+// 	margin-top: -200px;
+// 	overflow: hidden;
+//
+// 	&.form-success{
+// 		.container{
+// 			h1{
+// 				transform: translateY(85px);
+// 			}
+// 		}
+// 	}
+// }
+//
+// .devise-container{
+// 	max-width: 600px;
+// 	margin: 0 auto;
+// 	padding: 80px 0;
+// 	height: 400px;
+// 	text-align: center;
+//
+// 	h1{
+// 		font-size: 40px;
+// 		transition-duration: 1s;
+// 		transition-timing-function: ease-in-put;
+// 		font-weight: 200;
+// 	}
+// 	form{
+// 		padding: 20px 0;
+// 		position: relative;
+// 		z-index: 2;
+//
+// 		input{
+// 			display: block;
+// 			appearance: none;
+// 			outline: 0;
+// 			border: 1px solid fade(white, 40%);
+// 			background-color: fade(white, 20%);
+// 			width: 250px;
+//
+// 			border-radius: 3px;
+// 			padding: 10px 15px;
+// 			margin: 0 auto 10px auto;
+// 			display: block;
+// 			text-align: center;
+// 			font-size: 18px;
+//
+// 			color: white;
+//
+// 			transition-duration: 0.25s;
+// 			font-weight: 300;
+//
+// 			&:hover{
+// 				background-color: fade(white, 40%);
+// 			}
+//
+// 			&:focus{
+// 				background-color: white;
+// 				width: 300px;
+//
+// 				color: $prim;
+// 			}
+// 			&:-webkit-autofill {
+// 				-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+// 				background-color: #fff;
+// 			}
+// 		}
+//
+// 		button{
+// 			appearance: none;
+// 			outline: 0;
+// 			background-color: white;
+// 			border: 0;
+// 			padding: 10px 15px;
+// 			color: $prim;
+// 			border-radius: 3px;
+// 			width: 250px;
+// 			cursor: pointer;
+// 			font-size: 18px;
+// 			transition-duration: 0.25s;
+//
+// 			&:hover{
+// 				background-color: rgb(245, 247, 249);
+// 			}
+// 		}
+// 	}
+//
+// }

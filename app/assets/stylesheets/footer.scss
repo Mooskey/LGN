@@ -1,10 +1,13 @@
 footer{
   background: #222;
-  color: #ccc;
-  flex: 1;
+  color: #bbb;
+  flex: 1 0 6rem;
+  max-height: 6rem;
+  padding: 1.5rem 2rem 1rem 2rem;
 }
 footer span{
 
   color: #eee;
+  font-weight: bold;
 
 }

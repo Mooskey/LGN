@@ -68,8 +68,6 @@
 
         </nav>
         <div class="main">
-
-        <!-- TODO: Take links out of here and put them in a header _partial  -->
         <div class="user-auth-bar">
           <ul class="clean-list">
             <li class="notice"><%= notice %></li>
@@ -84,10 +82,12 @@
         </div>
 
         <%= yield %>
+        <div class="clear-fix"></div>
       </div>
       <footer>
-        <p>jashfjksahfkjeh HEY SOME CONENT HERE</p>
-        <p>jashfjksahfkjeh HEY SOME CONENT HERE</p>
+        <p>&copy; Slopywright&nbsp;&nbsp;<%= Time.new.year %>&nbsp;&nbsp;<span>Local Gamers Network</span>,&nbsp;&nbsp;All Rights Reserved.
+</p>
+
       </footer>
     </div>
   </body>
