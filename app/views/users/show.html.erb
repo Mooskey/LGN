@@ -1,53 +1,113 @@
 <% title "My Profile" %>
 
-<%= @user.username %>
-<!-- <img src="<%= @user.profile_img%>" alt="profile pic" /> -->
-<%= image_tag  @user.profile_img.url(:medium ) %> <br>
-<%= @user.first_name %> <br>
-<%= @user.last_name %> <br>
-<%= @user.email %> <br>
-<%= @user.country %> <br>
-<%= @user.zip %> <br>
-<%= @user.address %> <br>
-<%= @user.state %> <br>
-<%= @user.bio %> <br>
-<%= @user.dob %> <br>
+<div class="profile-wrapper">
+  <div class="profile-page-image">
+    <%= image_tag  @user.profile_img.url(:medium ) %>
+    <!-- Social-Icons -->
+    <ul class="social-icons clean-list">
+      <li>
+        <% if @user.steam != "" %>
+        <a href="<%= "http://steamcommunity.com/id/#{@user.steam}" %>" target="_blank">
+          <i class="fa fa-steam"></i>
+        </a>
+        <% else %>
+        <i class="fa fa-steam social-off"></i>
+        <% end %>
+      </li>
+
+      <li class="xbox">
+        <% if @user.xbox != "" %>
+        <a href="<%= "https://account.xbox.com/en-US/Profile?gamerTag=#{(@user.xbox).gsub(" ", "+")}" %>" target="_blank">
+          <i class="fi fi-social-xbox"></i>
+        </a>
+        <% else %>
+        <i class="fa fi-xbox social-off"></i>
+        <% end %>
+      </li>
+
+      <% if @user.psn != "" %>
+      <li class="psn">
+        <a href="<%= "https://my.playstation.com/#{@user.psn}" %>" target="_blank">
+          <%= image_tag("psn.png", id: "psn-img") %>
+        </a>
+      </li>
+      <% else %>
+      <li class="psn social-off">
+        <%= image_tag("psn.png", id: "psn-img") %>
+      </li>
+      <% end %>
+
+      <li>
+        <% if @user.twitch != "" %>
+        <a href="<%= "http://steamcommunity.com/id/#{@user.twitch}" %>" target="_blank">
+          <i class="fa fa-twitch"></i>
+        </a>
+        <% else %>
+        <i class="fa fa-twitch social-off"></i>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="profile-details">
+    <div id="user_name" class="user-name">
+      <%= @user.username %>
 
 
-  Steam Profile URL: <%= link_to @user.steam, "http://steamcommunity.com/id/#{@user.steam}" %> <br>
-Xbox Gamer Tag URL:
-  <% if @user.xbox %>
-    <%=link_to @user.xbox, "https://account.xbox.com/en-US/Profile?gamerTag=#{(@user.xbox).gsub(" ", "+")}" %> <br>
+    </div>
+    <p>
+      <span>First Name: </span>
+      <%= @user.first_name %>
+    </p>
+    <p>
+      <span>Last Name: </span>
+      <%= @user.last_name %>
+    </p>
+    <p>
+      <span>City: </span>
+      <%= @user.city %>
+    </p>
+    <p>
+      <span>State: </span>
+      <%= @user.state %>
+    </p>
+    <p>
+      <p><span>About Me: </span></p>
+      <%= @user.bio %>
+    </p>
+
+
+
+
+
+  <% @user.events.each do |event| %>
+    <%= event.name %>
+    <%= link_to "Event", event_path(event) %>
   <% end %>
 
 
-PlayStation Network URL: <%= link_to @user.psn, "https://my.playstation.com/#{@user.psn}" %> <br>
-Twitch Profile URL: <%= link_to @user.twitch, "https://www.twitch.tv/#{@user.twitch}/profile" %> <br>
+  <% @users_games.each do |game|%>
+    <% if @user == current_user %>
+      <%= link_to game.title, "#{@user.id}/#{game.id}", method: :delete, data: {confirm: 'Are you sure you want to delete this game?'} %> <br />
+    <% else %>
+      <%= game.title %> <br />
+    <% end %>
+  <!-- <img src="<%#game.image%>" alt="game logo" width="100px"/> <br> -->
+  <% end %>
 
-<% @user.events.each do |event| %>
-  <%= event.name %>
-  <%= link_to "Event", event_path(event) %>
-<% end %>
 
+  <div>
+    <%= link_to 'Nearby Users', users_path%>
+  </div>
 
-<% @users_games.each do |game|%>
-  <% if @user == current_user %>
-    <%= link_to game.title, "#{@user.id}/#{game.id}", method: :delete, data: {confirm: 'Are you sure you want to delete this game?'} %> <br />
+  <% if current_user %>
+    <% if current_user.id == @user.id %>
+      <%= link_to "Edit", edit_user_path(@user) %>
+    <% end %>
   <% else %>
-    <%= game.title %> <br />
+    <%= flash[:notice] = "Sign in to edit" %>
   <% end %>
-<!-- <img src="<%#game.image%>" alt="game logo" width="100px"/> <br> -->
-<% end %>
 
 
-<div>
-  <%= link_to 'Nearby Users', users_path%>
+  </div>
 </div>
-
-<% if current_user %>
-  <% if current_user.id == @user.id %>
-    <%= link_to "Edit", edit_user_path(@user) %>
-  <% end %>
-<% else %>
-  <%= flash[:notice] = "Sign in to edit" %>
-<% end %>

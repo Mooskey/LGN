@@ -1,5 +1,7 @@
 @import "vars";
 
+/*----------------Nav-Bar----------------*/
+
 nav h4 {
   font-family: "Orbitron", sans-serif;
   font-size: 1.6em;
@@ -47,13 +49,9 @@ nav a {
   margin: 0;
 }
 .title h2{
-  // color: #91DC5A;
-  // color: #FD6C0A;
+
   color: $blue-color;
-  // color: #fff;
-  // font-family: "Orbitron", sans-serif;
   font-family: 'Press Start 2P', cursive;
-  // font-family: 'Montserrat', cursive;
   font-size: 2.4em;
   margin: 1.6rem 0 0 0;
   padding-left: 0;
@@ -135,11 +133,6 @@ nav a {
 
 }
 
-
-// #71DCE2
-// #78E087
-// #353531
-
 /*----------------User-Auth-Bar----------------*/
 
 .user-auth-bar {
@@ -150,13 +143,12 @@ nav a {
   height: 2rem;
   font-family: "Lato", sans-serif;
   padding: 0.2rem 0.5rem;
-
 }
 
 .user-auth-bar ul {
-  display: flex;
-  padding: 0 0.6rem;
-  margin: 0;
+display: flex;
+padding: 0 0.6rem;
+margin: 0;
 }
 .user-auth-bar li {
   display: inline-block;
@@ -181,3 +173,9 @@ nav a {
 .alert {
   color: $orange-color;
 }
+
+
+
+// #71DCE2
+// #78E087
+// #353531
