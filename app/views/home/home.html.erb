@@ -1,7 +1,83 @@
+<<<<<<< HEAD
+<!-- <% title "Home Page" %>
+=======
 <% title "Home Page" %>
+<h3>Nearby Events</h3> <br>
 
-<%= link_to "List of users", users_path %>
-<%= link_to "Chat room", rooms_show_path %>
-<% if user_signed_in? %>
-<%= link_to "Events", events_path %>
+<% Event.all[0..3].each do |event| %>
+---------------------------------- <br>
+  <%= link_to event.name, event_path(event) %> <br />
+  <%= event.city %> <%= event.state %>, <%= event.zip %> <br /> <br />
+
 <% end %>
+
+
+
+
+<h3>Nearby Users</h3><br>
+<% User.all[0..3].each do |user| %>
+  <div class="user">
+    <%= image_tag user.profile_img.url(:thumb), alt: "#{user.username} avatar" %><br>
+    <%= link_to  user.username, "users/#{user.id}"%>
+  </div>
+<% end %>
+
+
+
+
+<h3>Hot Games</h3><br>
+  <div class="games-wrapper">
+    <h3><%= link_to "Popular Games", "/games" %></h3>
+    <%= form_tag('/add_game', method: "post") do %>
+      <ul id="game_images" class="clean-list">
+        <% Game.all[0..3].each do | game | %>
+            <li class="game-image cap-bot shadow-1">
+              <div class="game-frame ">
+              <!-- <%#= link_to image_tag(game.image, alt: game.title) %> -->
+              <input type="image" src="<%= game.image %>" alt="<%= game.title %>"
+                      onClick="$('input[name=game_id]').val('<%= game.id %>');$('form').submit();"  />
+              <%= hidden_field_tag :game_id %>
+              <!-- <input type="hidden" id="gameId" name="gameId" value="none" /> -->
+              <!-- <textarea name="test" rows="8" cols="40">Things and stuff</textarea> -->
+              <p><%= game.title %></p>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="clear-fix"></div>
+
+
+
+>>>>>>> cb37d2a417d9e92d0b31cb6391d4ebb68fd4bd79
+
+
+
+<div class="login-wrapper">
+	<div class="container">
+		<h1>Welcome to Local Gamers Network</h1>
+
+		<form class="form">
+			<input type="text" placeholder="Username">
+			<input type="password" placeholder="Password">
+			<button type="submit" id="login-button">LogIn</button></br>
+			<h2>
+			<p id="signup" > New To LGN? </p>
+		  </h2>
+			<button type="submit" id="login-button">SignUp</button>
+		</form>
+	</div>
+
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div> -->

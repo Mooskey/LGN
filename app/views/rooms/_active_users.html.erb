@@ -1,0 +1,23 @@
+
+<% if @active %>
+  <% @active.each do |user| %>
+    <% user.each do |name| %>
+      <%= name.username %> <br>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<script>
+  $(function() {
+    $(document).ready(function() {
+      setInterval(function() {
+        jQuery.ajax({
+          url: "chat",
+          type: "GET",
+          dataType: "script"
+        });
+      }, 60000);
+    });
+  });
+</script>

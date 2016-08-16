@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   post 'events/:id/hosts' => 'events#toggle_host'
 
   # get 'games/show'
