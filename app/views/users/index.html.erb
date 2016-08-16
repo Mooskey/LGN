@@ -1,11 +1,31 @@
-<h1>Local Users</h1>
+<h1 class="local-users-title">Local Users</h1>
+<div id="all-users">
+  <% @users.each do |user| %>
+    <div class="each-user">
+      <div class="user-avatar">
+        <a href="<%= user_path(user) %>">
+          <%= image_tag user.profile_img.url(:thumb), alt: "#{user.username} avatar" %>
+        </a>
+      </div>
+      <div class="user-details">
+        <%#= link_to  user.username, "users/#{user.id}"%>
+        <a href="<%= user_path(user) %>">
+          <p><span class="user-name"><%=user.username%></span></p>
+        </a>
+        <!-- <p><span>Name: </span><%= user.first_name %></p> -->
+        <p class="user-first-name"><%= user.first_name %></p>
+        <p class="user-city-state" >
+          <% if user.city != nil %>
+            <span class="user-info"><%= user.city %>, </span>
+          <% end %>
+          <span class="user-info"><%= user.state %></span>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<% @users.each do |user| %>
-  <div class="user">
-    <%= image_tag user.profile_img.url(:thumb), alt: "#{user.username} avatar" %>
-    <%= link_to  user.username, "users/#{user.id}"%>
-  </div>
+ <% unless @page == 1 %>
+ <%= link_to 'Previous page', page: @page - 1%>
 <% end %>
-
-<%= link_to 'Previous page', page: @page - 1%>
 <%= link_to 'Next page', page: @page + 1%>

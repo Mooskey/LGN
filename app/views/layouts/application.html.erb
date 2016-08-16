@@ -6,24 +6,33 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
     <!-- Google-Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P'
+    rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'
+    rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900'
           rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900'
-          rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P'
-          rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900"
+          rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
           rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'
-          rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700'
           rel='stylesheet' type='text/css'>
+          <!-- <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900'
+          rel='stylesheet' type='text/css'> -->
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css"
+          integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE"
+          crossorigin="anonymous">
+    <!-- Foundation-Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
   </head>
 
   <body>
@@ -59,15 +68,13 @@
 
         </nav>
         <div class="main">
-
-        <!-- TODO: Take links out of here and put them in a header _partial  -->
         <div class="user-auth-bar">
           <ul class="clean-list">
             <li class="notice"><%= notice %></li>
             <li class="alert"><%= alert %></li>
           <% if !user_signed_in? %>
-            <li><%= link_to "Sign in", new_user_session_path %></li><span>or</span>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to("Sign in", new_user_session_path) %></li><span>or</span>
+            <li><%= link_to("Sign up", new_user_registration_path) %></li>
           <% else %>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% end %>
@@ -75,10 +82,12 @@
         </div>
 
         <%= yield %>
+        <div class="clear-fix"></div>
       </div>
       <footer>
-        <p>jashfjksahfkjeh HEY SOME CONENT HERE</p>
-        <p>jashfjksahfkjeh HEY SOME CONENT HERE</p>
+        <p>&copy; Slopywright&nbsp;&nbsp;<%= Time.new.year %>&nbsp;&nbsp;<span>Local Gamers Network</span>,&nbsp;&nbsp;All Rights Reserved.
+</p>
+
       </footer>
     </div>
   </body>

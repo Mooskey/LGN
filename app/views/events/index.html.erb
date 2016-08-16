@@ -8,5 +8,7 @@
 
 <% end %>
 
-<%= link_to 'Previous page', page: @page - 1%>
+<% unless @page == 1 %>
+  <%= link_to 'Previous page', page: @page - 1%>
+<% end %>
 <%= link_to 'Next page', page: @page + 1%>

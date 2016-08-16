@@ -1,3 +1,127 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "vars";
+
+/*----------------Local-Users-Page----------------*/
+
+.local-users-title {
+  padding: 0 2rem;
+}
+
+#all-users {
+  border-top: 2px solid $grey-divider;
+  border-bottom: 2px solid $grey-divider;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+}
+.each-user {
+  border-top: 1px solid $grey-divider;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0;
+  // padding: 2rem;
+  &:first-child {
+    border-top: none;
+    // border-bottom: 1px solid #666;
+  }
+
+}
+
+.each-user .user-avatar {
+// background: pink;
+  flex: 1 0 7rem;
+  max-width: 7rem;
+
+}
+.each-user .user-details {
+  // background: kahki;
+  flex: 6 0 0;
+  padding: 0 1rem;
+  // width: 8rem;
+
+  p {
+    line-height: 1.6em;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+  }
+}
+
+.user-name {
+  color: darken($blue-color, 10%);
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+.user-first-name,.user-city-state {
+  color: lighten($header-bkgnd, 0%);
+}
+.user-first-name{
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.user-city-state{
+  text-transform: capitalize;
+}
+
+
+/*----------------Profile-Page----------------*/
+.profile-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 75vh;
+  padding: 4rem 2rem;
+}
+
+.profile-page-image {
+
+}
+
+.profile-details {
+padding: 0 2rem;
+
+  #user_name {
+    margin: 0;
+  }
+  span {
+    font-weight: 700;
+  }
+  p {
+    margin: .5rem 0 0 0;
+  }
+}
+
+#edit_profile {
+  font-size: 0.5em;
+  color: lighten($header-bkgnd, 20%);
+}
+
+#bio {
+}
+
+.profile-games {
+  border-top: 2px solid $grey-divider;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+.profile-game {
+  // justify-content: space-between;
+  flex: 1;
+  margin: 1rem 1rem 0rem 0;
+  width: 100%;
+}
+.profile-game-img {
+  height: 7rem;
+  width: auto;
+}
+
+.remove-game-btn {
+  width: 90%
+
+}

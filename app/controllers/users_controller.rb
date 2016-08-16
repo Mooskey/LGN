@@ -14,8 +14,8 @@ class UsersController < ApplicationController
               if params[:page] != nil && params[:page].to_i < 1
                 redirect_back fallback_location: events_path
 
-              elsif ((@userss.length/10.0).ceil && 1) < params[:page].to_i
-                redirect_to "/events/page/#{(@userss.length/10.0).ceil}"
+              elsif ((@userss.length/10.0).ceil + 1) < params[:page].to_i
+                redirect_to "/users/page/#{(@userss.length/10.0).ceil}"
               end
     end
 
@@ -63,6 +63,6 @@ private
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :zip, :address, :country, :state, :dob, :fb, :psn, :xbox, :steam, :twitch, :bio, :profile_img)
+      params.require(:user).permit(:first_name, :last_name, :email, :address, :city, :state, :zip, :country, :dob, :fb, :psn, :xbox, :steam, :twitch, :bio, :profile_img)
     end
 end

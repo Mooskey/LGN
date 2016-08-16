@@ -25,20 +25,24 @@
     <%= f.text_area :bio %>
   </div>
   <div class="field">
+    <%= f.label :address %> <br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %> <br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %> <br />
+    <%= f.select :state, User::STATES %>
+  </div>
+  <div class="field">
     <%= f.label :zip %> <br />
     <%= f.text_field :zip %>
   </div>
   <div class="field">
     <%= f.label :country %> <br />
     <%= f.select :country, ["United States"] %>
-  </div>
-  <div class="field">
-    <%= f.label :address %> <br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :state %> <br />
-    <%= f.select :state, User::STATES %>
   </div>
   <div class="field">
     <%= f.label :steam %> <br />

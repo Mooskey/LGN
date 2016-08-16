@@ -56,7 +56,7 @@ class EventsController < ApplicationController
                 all
             if params[:page] != nil && params[:page].to_i < 1
               redirect_back fallback_location: events_path
-            elsif ((@eventss.length/10.0).ceil && 1) < params[:page].to_i
+            elsif ((@eventss.length/10.0).ceil + 1) < params[:page].to_i
               redirect_to "/events/page/#{(@eventss.length/10.0).ceil}"
             end
 
