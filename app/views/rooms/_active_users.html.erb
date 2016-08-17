@@ -1,23 +1,22 @@
+Active Users
 
-<% if @active %>
-  <% @active.each do |user| %>
-    <% user.each do |name| %>
-      <br> <%= name.username %> <br>
-    <% end %>
-  <% end %>
+<% @active.each do |user| %>
+  <br> <%= user.username %> <br>
 <% end %>
 
 
 <script>
-  $(function() {
-    $(document).ready(function() {
-      setInterval(function() {
-        jQuery.ajax({
-          url: "chat",
-          type: "GET",
-          dataType: "script"
-        });
-      }, 60000);
-    });
-  });
+  $(document).ready(function() {
+    if (window.activeInterval === undefined) {
+      console.log('creating interval');
+      window.activeInterval = setInterval(function() {
+        console.log('tick');
+        jQuery.ajax({
+          url: "chat",
+          type: "GET",
+          dataType: "script"
+        });
+      }, 60000);
+    }
+  });
 </script>
