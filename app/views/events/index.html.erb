@@ -1,9 +1,7 @@
 <% title "Events" %>
 <h1 class="local-events-title">Local Events</h1>
 <div class="local-events-title">
-  <div class="flat-button-green">
-    <%= link_to "Host an event", new_event_path %>
-  </div>
+  <%= button_to "Host an event", new_event_path, class: "flat-button-green", method: :get %>
 </div>
 <div id="all-events">
   <% @events.each do |event| %>
@@ -28,7 +26,6 @@
     </div>
   <% end %>
 </div>
-  <%= button_to "Host an event", new_event_path, method: :get %>
 
 <%# unless @page == 1 %>
   <%#= link_to 'Previous page', page: @page - 1%>
