@@ -1,14 +1,35 @@
+<% title "Events" %>
+<h1 class="local-events-title">Local Events</h1>
+<div class="local-events-title">
+  <div class="flat-button-green">
+    <%= link_to "Host an event", new_event_path %>
+  </div>
+</div>
+<div id="all-events">
+  <% @events.each do |event| %>
+    <div class="each-event">
+      <div class="event-avatar">
+        <a href="<%= event_path(event) %>">
+          <%= image_tag "event.png", alt: "#{event.name}" %>
+        </a>
+      </div>
+        <div class="user-details">
 
-<%= link_to "Host an event", new_event_path %>  <br>
+          <a href="<%= event_path(event) %>">
+            <p><span class="user-name"><%= event.name %></span></p>
+          </a>
+          <p class="user-city-state" >
+            <% if event.city != nil || event.city != "" %>
+              <span class="event-info"><%= event.city %>,&nbsp;</span>
+            <% end %>
+            <span class="event-info"><%= event.state %>&nbsp;<%= event.zip %></span>
+          </p>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<% @events.each do |event| %>
----------------------------------- <br>
-  <%= link_to event.name, event_path(event) %> <br />
-  <%= event.city %> <%= event.state %>, <%= event.zip %> <br /> <br />
-
-<% end %>
-
-<% unless @page == 1 %>
-  <%= link_to 'Previous page', page: @page - 1%>
-<% end %>
-<%= link_to 'Next page', page: @page + 1%>
+<%# unless @page == 1 %>
+  <%#= link_to 'Previous page', page: @page - 1%>
+<%# end %>
+<%#= link_to 'Next page', page: @page + 1%>
