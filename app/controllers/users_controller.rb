@@ -20,19 +20,19 @@ class UsersController < ApplicationController
     end
 
 
+    def edit
+    end
+
 
     def show
       @users_games = []
-      @games_user_records = GamesUser.where(user_id: current_user)
+      @games_user_records = GamesUser.where(user_id: @user)
       @games_user_records.each do |record|
         @users_games << Game.find(record.game_id)
       end
       @users_games
     end
 
-
-    def edit
-    end
 
     def remove_game
       @games_user_records = GamesUser.where(user_id: current_user).all
