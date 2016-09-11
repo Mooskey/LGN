@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814163149) do
+ActiveRecord::Schema.define(version: 20160911014813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,21 +87,21 @@ ActiveRecord::Schema.define(version: 20160814163149) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.string   "username"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "username",                 default: ""
+    t.string   "first_name",               default: ""
+    t.string   "last_name",                default: ""
     t.date     "dob"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
+    t.string   "address",                  default: ""
+    t.string   "city",                     default: ""
+    t.string   "state",                    default: ""
     t.integer  "zip"
-    t.string   "country"
-    t.text     "bio"
-    t.string   "fb"
-    t.string   "steam"
-    t.string   "psn"
-    t.string   "xbox"
-    t.string   "twitch"
+    t.string   "country",                  default: ""
+    t.text     "bio",                      default: ""
+    t.string   "fb",                       default: ""
+    t.string   "steam",                    default: ""
+    t.string   "psn",                      default: ""
+    t.string   "xbox",                     default: ""
+    t.string   "twitch",                   default: ""
     t.string   "profile_img_file_name"
     t.string   "profile_img_content_type"
     t.integer  "profile_img_file_size"

@@ -26,13 +26,13 @@
         <%# end -%> -->
 
         <div class="actions">
-          <%= f.submit "LogIn" %>
+          <%= f.submit "Sign In" %>
         </div>
         <button type="submit" id="login-button">SignUp</button>
       </div>
       <% end %>
     <div class="whit-btn">
-    <%= button_to "SignUp",  { action: "new", controller:"devise/registrations" }, id: "signup_btn", method: :get %>
+    <%= button_to "Sign Up",  { action: "new", controller:"devise/registrations" }, id: "signup_btn", method: :get %>
   </div>
   <%= render "devise/shared/links" %>
   </div>
