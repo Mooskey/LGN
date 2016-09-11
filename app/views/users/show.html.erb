@@ -16,7 +16,7 @@
       </li>
 
       <li class="xbox">
-        <% if @user.xbox %>
+        <% if @user.xbox && @user.xbox != "" %>
         <a href="<%= "https://account.xbox.com/en-US/Profile?gamerTag=#{(@user.xbox).gsub(" ", "+")}" %>" target="_blank">
           <i class="fi fi-social-xbox"></i>
         </a>
