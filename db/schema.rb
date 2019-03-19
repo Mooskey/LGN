@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911014813) do
+ActiveRecord::Schema.define(version: 2016_09_11_014813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.date     "date"
-    t.time     "time"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.string   "country"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.float    "latitude"
-    t.float    "longitude"
+  create_table "events", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "date"
+    t.time "time"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "events_games", id: false, force: :cascade do |t|
@@ -36,80 +36,80 @@ ActiveRecord::Schema.define(version: 20160911014813) do
     t.integer "game_id"
   end
 
-  create_table "events_users", force: :cascade do |t|
+  create_table "events_users", id: :serial, force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
     t.boolean "is_host"
   end
 
-  create_table "games", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "rating"
-    t.string   "game_url"
-    t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["title"], name: "index_games_on_title", using: :btree
+  create_table "games", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "rating"
+    t.string "game_url"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_games_on_title"
   end
 
-  create_table "games_users", force: :cascade do |t|
+  create_table "games_users", id: :serial, force: :cascade do |t|
     t.integer "game_id"
     t.integer "user_id"
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
+  create_table "locations", id: :serial, force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "content"
+  create_table "messages", id: :serial, force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                    default: "", null: false
-    t.string   "encrypted_password",       default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",            default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "username",                 default: ""
-    t.string   "first_name",               default: ""
-    t.string   "last_name",                default: ""
-    t.date     "dob"
-    t.string   "address",                  default: ""
-    t.string   "city",                     default: ""
-    t.string   "state",                    default: ""
-    t.integer  "zip"
-    t.string   "country",                  default: ""
-    t.text     "bio",                      default: ""
-    t.string   "fb",                       default: ""
-    t.string   "steam",                    default: ""
-    t.string   "psn",                      default: ""
-    t.string   "xbox",                     default: ""
-    t.string   "twitch",                   default: ""
-    t.string   "profile_img_file_name"
-    t.string   "profile_img_content_type"
-    t.integer  "profile_img_file_size"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username", default: ""
+    t.string "first_name", default: ""
+    t.string "last_name", default: ""
+    t.date "dob"
+    t.string "address", default: ""
+    t.string "city", default: ""
+    t.string "state", default: ""
+    t.integer "zip"
+    t.string "country", default: ""
+    t.text "bio", default: ""
+    t.string "fb", default: ""
+    t.string "steam", default: ""
+    t.string "psn", default: ""
+    t.string "xbox", default: ""
+    t.string "twitch", default: ""
+    t.string "profile_img_file_name"
+    t.string "profile_img_content_type"
+    t.integer "profile_img_file_size"
     t.datetime "profile_img_updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.float "latitude"
+    t.float "longitude"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "messages", "users"

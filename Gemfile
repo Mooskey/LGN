@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+#changed from version specific  5.0.7.2 to facilitate migration from paperclip to ActiveStorage
+gem 'rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -36,6 +37,12 @@ gem "paperclip", "~> 5.0.0"
 gem 'httparty'
 
 gem 'aws-sdk'
+
+#recommended for Paperclip to ActiveStorage migration
+gem 'mini_magick'
+
+#boots large rails apps faster, needed after updating rails
+gem 'bootsnap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

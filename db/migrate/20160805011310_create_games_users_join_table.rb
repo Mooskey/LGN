@@ -1,6 +1,6 @@
 class CreateGamesUsersJoinTable < ActiveRecord::Migration[5.0]
   def change
-    create_table :games_users, id: true do |t|
+    create_table :games_users, id: false do |t|
       t.integer :game_id
       t.integer :user_id
     end
